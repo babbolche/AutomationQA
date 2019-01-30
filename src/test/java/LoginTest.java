@@ -2,10 +2,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
+
+import static org.testng.Assert.assertEquals;
 
 public class LoginTest {
 
@@ -30,8 +33,12 @@ public class LoginTest {
         WebElement button = driver.findElement(By.cssSelector("button[type=\"submit\"]"));
         button.click();
 
+        WebElement dashboard = driver.findElement(By.id("menu-dashboard"));
+
+        // не ми се получава сравнението на button.click() и dashboard 
+
+
 
 
     }
-
 }
