@@ -46,6 +46,7 @@ public class DropdownTest {
 
 
         WebElement dropdown = driver.findElement(By.id("input-order-status"));
+
         Select ordersStatus = new Select(dropdown);
         assertFalse(ordersStatus.isMultiple());
 
