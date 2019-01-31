@@ -71,9 +71,9 @@ public class DropdownTest {
         }
     }
 
-//    @AfterMethod
-//    public void ShutDown() {
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void ShutDown() {
+        driver.quit();
+    }
 }
 
