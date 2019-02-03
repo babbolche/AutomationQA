@@ -23,6 +23,7 @@ public class DropdownTest {
         System.setProperty("webdriver.chrome.driver", "C:\\WebDrivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         driver.get("http://shop.pragmatic.bg/admin/");
     }
 
@@ -51,24 +52,21 @@ public class DropdownTest {
         assertFalse(ordersStatus.isMultiple());
 
 
-        System.out.println("========================");
-        System.out.println(ordersStatus.getOptions().toArray());
-
-
         assertEquals(ordersStatus.getOptions().size(), 16);
 
         List<String> exp_options = Arrays.asList(new String[]{"","Missing Orders", "Canceled", "Canceled Reversal", "Chargeback",
-                "Completed", "Denied", "Expired", "Failed", "Pending", "Processed", "Processing", "Refunded", "Reversed", "Shipped", "Voided"});
+                "Complete", "Denied", "Expired", "Failed", "Pending", "Processed", "Processing", "Refunded", "Reversed", "Shipped", "Voided"});
         List<String> act_options = new ArrayList<>();
 
         List<WebElement> allOptions = ordersStatus.getOptions();
 
         for (WebElement option : allOptions) {
             act_options.add(option.getText());
+        }
 
             assertEquals(act_options.toArray(), exp_options.toArray());
 
-        }
+
     }
 
     @AfterMethod
